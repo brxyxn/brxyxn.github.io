@@ -7,31 +7,26 @@
     <meta name="color-scheme" content="light dark">
 
     <meta name="author" content="Brayan Lopez">
-    <meta name="description" content="This is in development using Hugo">
+    <meta name="description" content="Building scalable products with Go + React.js, strong engineering leadership, and a product-first mindset.">
     <meta name="keywords" content="blog,developer,personal,devops">
 
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="Brayan Site"/>
-    <meta name="twitter:description" content="This is in development using Hugo"/>
+    <meta name="twitter:title" content="Brayan Lopez — Full-stack Engineer"/>
+    <meta name="twitter:description" content="Building scalable products with Go + React.js, strong engineering leadership, and a product-first mindset."/>
 
-    <meta property="og:title" content="Brayan Site"/>
-    <meta property="og:description" content="This is in development using Hugo"/>
+    <meta property="og:title" content="Brayan Lopez — Full-stack Engineer"/>
+    <meta property="og:description" content="Building scalable products with Go + React.js, strong engineering leadership, and a product-first mindset."/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="http://brxyxn.github.io/"/>
 
-    <title>Brayan Site</title>
+    <title>Brayan Lopez — Full-stack Engineer</title>
 
     <link rel="canonical" href="http://brxyxn.github.io/">
 
     <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-    <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css"
-          integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous"
-          media="screen"/>
-
-    <link rel="stylesheet"
-          href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css"
-          integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
@@ -39,80 +34,486 @@
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Brayan Site"/>
-    <meta name="generator" content="Hugo 0.96.0"/>
+    <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Brayan Lopez"/>
+
+    <style>
+        @font-face {
+            font-family: forkawesome;
+            src: url(/fonts/forkawesome-webfont.woff2?v=1.2.0) format("woff2");
+            font-weight: 400;
+            font-style: normal;
+            font-display: block;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg);
+            color: var(--fg);
+            --bg: #212121;
+            --fg: #dadada;
+            --muted: #8f8f8f;
+            --card: #282828;
+            --card2: #242424;
+            --border: #3a3a3a;
+            --accent: #42a5f5;
+            --chipbg: rgba(66, 165, 245, .12);
+            --chipbr: rgba(66, 165, 245, .35);
+            --glow: rgba(66, 165, 245, .18);
+        }
+
+        body.light {
+            --bg: #fafafa;
+            --fg: #212121;
+            --muted: #6e6e6e;
+            --card: #ffffff;
+            --card2: #f2f2f2;
+            --border: #e0e0e0;
+            --accent: #1565c0;
+            --chipbg: rgba(21, 101, 192, .08);
+            --chipbr: rgba(21, 101, 192, .3);
+            --glow: rgba(21, 101, 192, .14);
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent); }
+
+        .fa { font-family: forkawesome; font-style: normal; }
+
+        .theme-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 10;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--fg);
+            cursor: pointer;
+        }
+
+        .wrapper {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* ===== Terminal banner ===== */
+        .terminal {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border);
+            background: var(--card2);
+        }
+
+        .dot { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+        .dot-red { background: #ff5f57; }
+        .dot-yellow { background: #febc2e; }
+        .dot-green { background: #28c840; }
+
+        .terminal-title { margin-left: 12px; font-size: 12px; color: var(--muted); }
+
+        .terminal-body {
+            padding: 28px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .prompt { font-size: 13px; color: var(--muted); }
+
+        .name {
+            font-size: 30px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .name span { color: var(--accent); }
+
+        .bio {
+            margin: 12px 0 0;
+            color: var(--muted);
+            font-size: 14.5px;
+            line-height: 1.7;
+            max-width: 640px;
+            text-wrap: pretty;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 9px;
+            height: 17px;
+            background: var(--accent);
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            flex: none;
+        }
+
+        /* ===== Bento grid ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: 140px;
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: var(--fg);
+            transition: all .18s ease;
+        }
+
+        a.card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent), 0 10px 32px var(--glow);
+        }
+
+        .muted-label { font-size: 12px; color: var(--muted); }
+
+        .chip {
+            font-size: 12px;
+            padding: 4px 11px;
+            border-radius: 999px;
+            background: var(--chipbg);
+            border: 1px solid var(--chipbr);
+            color: var(--accent);
+        }
+
+        /* Featured portfolio card */
+        .card-featured {
+            grid-column: span 3;
+            grid-row: span 2;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-featured .top { display: flex; justify-content: space-between; }
+        .card-featured .top .fa { color: var(--accent); }
+
+        .screenshot {
+            flex: 1;
+            margin: 18px 0;
+            border-radius: 10px;
+            border: 1px dashed var(--chipbr);
+            background: repeating-linear-gradient(45deg, var(--card2), var(--card2) 10px, var(--card) 10px, var(--card) 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .card-featured .bottom { display: flex; justify-content: space-between; align-items: center; }
+        .card-featured .bottom .title { font-size: 22px; font-weight: 700; }
+        .card-featured .bottom .arrow { color: var(--accent); font-size: 22px; }
+
+        /* Blog card */
+        .card-blog {
+            grid-column: span 3;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-blog .title { font-size: 19px; font-weight: 700; margin-top: 6px; }
+        .card-blog .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+        .card-blog .arrow { color: var(--accent); font-size: 24px; }
+
+        /* Icon tiles */
+        .card-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .card-icon .fa { font-size: 28px; }
+        .card-icon .label { font-size: 12px; }
+        .icon-linkedin { color: #0a66c2; }
+        .icon-twitter { color: #1d9bf0; }
+
+        /* Project cards */
+        .card-project {
+            grid-column: span 2;
+            border-style: dashed;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-project .shine {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 34%;
+            background: linear-gradient(100deg, transparent, var(--chipbg) 45%, var(--chipbr) 50%, var(--chipbg) 55%, transparent);
+            transform: translateX(-140%) skewX(-18deg);
+            transition: transform .55s ease;
+            pointer-events: none;
+        }
+
+        .card-project:hover .shine { transform: translateX(340%) skewX(-18deg); }
+
+        .card-project .big-arrow {
+            position: absolute;
+            right: 16px;
+            bottom: 2px;
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent);
+            opacity: 0;
+            transform: translate(-28px, 28px);
+            transition: opacity .3s ease, transform .3s ease;
+            pointer-events: none;
+        }
+
+        .card-project:hover .big-arrow { opacity: 1; transform: translate(0, 0); }
+
+        .card-project .tag { font-size: 11px; color: var(--muted); }
+        .card-project .title { font-size: 16px; font-weight: 700; }
+        .card-project .chips { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+        .card-project .chip { font-size: 10.5px; padding: 2px 8px; }
+
+        /* Stack card */
+        .card-stack {
+            grid-column: span 4;
+            padding: 22px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-stack .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        /* Contact card */
+        .card-contact {
+            grid-column: span 2;
+            background: var(--accent);
+            border-color: var(--accent);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #fff;
+        }
+
+        a.card-contact:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 32px var(--glow);
+        }
+
+        .card-contact .fa { font-size: 22px; }
+        .card-contact .title { font-size: 16px; font-weight: 700; }
+        .card-contact .sub { font-size: 12px; opacity: .85; }
+
+        .footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 32px;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .wrapper { padding: 72px 16px 32px; }
+
+            .terminal-body { flex-direction: column-reverse; align-items: flex-start; gap: 24px; }
+            .name { font-size: 24px; }
+
+            .grid { grid-auto-rows: auto; }
+            .card { min-height: 140px; }
+
+            .card-featured { grid-column: span 6; grid-row: auto; min-height: 320px; }
+            .card-blog { grid-column: span 6; }
+            .card-icon { grid-column: span 2; }
+            .card-project { grid-column: span 6; }
+            .card-stack { grid-column: span 6; gap: 16px; }
+            .card-contact { grid-column: span 6; gap: 16px; }
+        }
+    </style>
 </head>
 
-<body class="preload-transitions colorscheme-auto">
+<body>
+<script>
+    if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+</script>
 
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
+<button id="theme-toggle" class="theme-toggle" type="button">◑ light mode</button>
 
 <main class="wrapper">
-    <nav class="navigation">
-        <section class="container">
-            <a class="navigation-title" href="/">
-                Brayan Site
-            </a>
-            <input type="checkbox" id="menu-toggle"/>
-            <label class="menu-button float-right" for="menu-toggle">
-                <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
-            </label>
-            <ul class="navigation-list">
-                <li class="navigation-item">
-                    <a class="navigation-link" href="/posts/">Blog</a>
-                </li>
 
-                <li class="navigation-item">
-                    <a class="navigation-link" href="/about/">About</a>
-                </li>
-            </ul>
-        </section>
-    </nav>
-
-    <div class="content">
-
-        <section class="container centered">
-            <div class="about">
-                <div class="avatar"><img
-                        src="https://www.gravatar.com/avatar/684d1015849fabbcbb08320d9916b378?s=240&d=mp"
-                        alt="gravatar"></div>
-
-                <h1>Brayan Lopez</h1>
-                <h2>Full Stack DevOps</h2>
-
-                <ul>
-                    <li>
-                        <a href="https://github.com/brxyxn/" aria-label="Github">
-                            <i class="fa fa-github fa-2x" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://linkedin.com/in/brxyxn/" aria-label="LinkedIn">
-                            <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/brxyxn_dev/" aria-label="Twitter">
-                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </ul>
-
+    <div class="terminal">
+        <div class="terminal-bar">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <span class="terminal-title">brayan@brxyxn: ~</span>
+        </div>
+        <div class="terminal-body">
+            <div>
+                <div class="prompt">$ whoami</div>
+                <div class="name">Brayan Lopez <span>// Full-stack Engineer</span></div>
+                <p class="bio">Building scalable products with Go + React.js, strong engineering leadership, and a product-first mindset.<span class="cursor"></span></p>
             </div>
-        </section>
+            <img class="avatar" src="https://www.gravatar.com/avatar/684d1015849fabbcbb08320d9916b378?s=240&d=mp" alt="Brayan Lopez">
+        </div>
     </div>
 
-    <footer class="footer">
-        <section class="container">©2022 Brayan Lopez · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-        </section>
-    </footer>
+    <div class="grid">
+
+        <a class="card card-featured" href="https://brxyxn.cloud" target="_blank" rel="noopener">
+            <div class="top">
+                <span class="muted-label">featured / portfolio</span>
+                <span class="fa">&#xf08e;</span>
+            </div>
+            <div class="screenshot">portfolio screenshot</div>
+            <div class="bottom">
+                <div class="title">brxyxn.cloud</div>
+                <span class="arrow">↗</span>
+            </div>
+        </a>
+
+        <a class="card card-blog" href="https://brxyxn.cloud/blog" target="_blank" rel="noopener">
+            <div>
+                <div class="muted-label">$ cat latest-posts</div>
+                <div class="title">The Blog</div>
+                <div class="sub">Go · React · DevOps notes</div>
+            </div>
+            <span class="arrow">↗</span>
+        </a>
+
+        <a class="card card-icon" href="https://github.com/brxyxn" target="_blank" rel="noopener" aria-label="GitHub">
+            <span class="fa">&#xf09b;</span>
+            <span class="label">github</span>
+        </a>
+
+        <a class="card card-icon" href="https://www.linkedin.com/in/brxyxn/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <span class="fa icon-linkedin">&#xf0e1;</span>
+            <span class="label">linkedin</span>
+        </a>
+
+        <a class="card card-icon" href="https://twitter.com/brxyxn_dev/" target="_blank" rel="noopener" aria-label="Twitter">
+            <span class="fa icon-twitter">&#xf099;</span>
+            <span class="label">twitter</span>
+        </a>
+
+        <a class="card card-project" href="https://github.com/brxyxn" target="_blank" rel="noopener">
+            <span class="shine"></span>
+            <span class="big-arrow">↗</span>
+            <div class="tag">demo / placeholder</div>
+            <div>
+                <div class="title">project-01</div>
+                <div class="chips">
+                    <span class="chip">Go</span>
+                    <span class="chip">gRPC</span>
+                </div>
+            </div>
+        </a>
+
+        <a class="card card-project" href="https://github.com/brxyxn" target="_blank" rel="noopener">
+            <span class="shine"></span>
+            <span class="big-arrow">↗</span>
+            <div class="tag">demo / placeholder</div>
+            <div>
+                <div class="title">project-02</div>
+                <div class="chips">
+                    <span class="chip">React</span>
+                    <span class="chip">TS</span>
+                </div>
+            </div>
+        </a>
+
+        <a class="card card-project" href="https://github.com/brxyxn" target="_blank" rel="noopener">
+            <span class="shine"></span>
+            <span class="big-arrow">↗</span>
+            <div class="tag">demo / placeholder</div>
+            <div>
+                <div class="title">project-03</div>
+                <div class="chips">
+                    <span class="chip">Go</span>
+                    <span class="chip">AWS</span>
+                </div>
+            </div>
+        </a>
+
+        <div class="card card-stack">
+            <div class="muted-label">$ stack --list</div>
+            <div class="chips">
+                <span class="chip">Go</span>
+                <span class="chip">React.js</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">Node.js</span>
+                <span class="chip">Docker</span>
+                <span class="chip">Kubernetes</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">AWS</span>
+                <span class="chip">CI/CD</span>
+            </div>
+        </div>
+
+        <a class="card card-contact" href="mailto:brxyxmp@gmail.com">
+            <span class="fa">&#xf003;</span>
+            <div>
+                <div class="title">Get in touch</div>
+                <div class="sub">brxyxmp@gmail.com ↗</div>
+            </div>
+        </a>
+
+    </div>
+
+    <footer class="footer">©2026 Brayan Lopez · <a href="https://brxyxn.cloud" target="_blank" rel="noopener">brxyxn.cloud</a></footer>
+
 </main>
 
-<script src="/js/coder.min.8fb86376a16e684af472a329aef502dbebcfab65ce264e9750d144912947c602.js"
-        integrity="sha256-j7hjdqFuaEr0cqMprvUC2&#43;vPq2XOJk6XUNFEkSlHxgI="></script>
+<script>
+    (function () {
+        var btn = document.getElementById('theme-toggle');
+        function label() {
+            btn.textContent = document.body.classList.contains('light') ? '◐ dark mode' : '◑ light mode';
+        }
+        btn.addEventListener('click', function () {
+            var light = document.body.classList.toggle('light');
+            localStorage.setItem('theme', light ? 'light' : 'dark');
+            label();
+        });
+        label();
+    })();
+</script>
 </body>
 </html>
